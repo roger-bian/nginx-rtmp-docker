@@ -50,6 +50,11 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 # Set up config file
 COPY nginx.conf /etc/nginx/nginx.conf
 
+# SSL
+RUN mkdir /certs
+COPY localhost.crt /certs/localhost.crt
+COPY localhost.key /certs/localhost.key 
+
 # Create HLS folder
 RUN mkdir -p /www/hls
 
