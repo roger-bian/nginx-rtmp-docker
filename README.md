@@ -17,6 +17,13 @@ docker run -d -p 1935:1935 -p 8080:8080 --name nginx-rtmp-hls nginx-rtmp-hls:1.0
 docker exec -it nginx-rtmp-hls /bin/bash
 ```
 
+### stream to nginx using ffmpeg
+
+```
+ffmpeg -i rtsp://Factory-Admin:Camadmin1@{$CAM_IP}/Src/MediaInput/stream_1 -c:v copy -c:a aac -ar 44100 -ac 1 -f flv rtmp://localhost:{$INPUT_PORT}/live/{$SET_CAM_KEY}
+```
+
+
 ## How to test with OBS Studio and VLC
 
 * Run a container with the command above
@@ -37,6 +44,6 @@ docker exec -it nginx-rtmp-hls /bin/bash
 * Click in the "Media" menu
 * Click in "Open Network Stream"
 * Enter the URL from above as `http://<ip_of_host>:8080/hls/<key>.m3u8` replacing `<ip_of_host>` with the IP of the host in which the container is running and `<key>` with the key you created in OBS Studio. 
-    * For example: `http://192.168.0.30:8080/live/test.m3u8`
+    * For example: `http://192.168.0.30:8080/hls/test.m3u8`
 * Click "Play"
 * Now VLC should start playing whatever you are transmitting from OBS Studio
