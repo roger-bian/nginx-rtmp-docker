@@ -23,6 +23,19 @@ docker exec -it nginx-rtmp-hls /bin/bash
 ffmpeg -i rtsp://Factory-Admin:Camadmin1@{$CAM_IP}/Src/MediaInput/stream_1 -c:v copy -c:a aac -ar 44100 -ac 1 -f flv rtmp://localhost:{$INPUT_PORT}/live/{$SET_CAM_KEY}
 ```
 
+## port + hls_path mapping
+
+| Port (Listen)  | hls_path    |
+| -------------- | ----------- |
+| 1935           | /www/hls1/  |
+| 1936           | /www/hls2/  |
+| 1937           | /www/hls3/  |
+| 1938           | /www/hls4/  |
+| 1939           | /www/hls5/  |
+| 1940           | /www/hls6/  |
+| 1941           | /www/hls7/  |
+| 1942           | /www/hls8/  |
+
 
 ## How to test with OBS Studio and VLC
 

@@ -58,6 +58,12 @@ COPY localhost.key /certs/localhost.key
 # Create HLS folder
 RUN mkdir -p /www/hls1
 RUN mkdir -p /www/hls2
+RUN mkdir -p /www/hls3
+RUN mkdir -p /www/hls4
+RUN mkdir -p /www/hls5
+RUN mkdir -p /www/hls6
+RUN mkdir -p /www/hls7
+RUN mkdir -p /www/hls8
 
 EXPOSE 1935
 CMD ["nginx", "-g", "daemon off;"]
